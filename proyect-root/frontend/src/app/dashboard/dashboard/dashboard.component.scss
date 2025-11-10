@@ -1,0 +1,68 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.kpi-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;/
+
+  mat-card {
+    flex: 1 1 150px; 
+    max-width: 250px; 
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+  }
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 20px;
+
+  mat-card {
+    padding: 20px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .kpi-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .kpi-cards mat-card {
+    max-width: 100%;
+  }
+
+  .charts {
+    grid-template-columns: 1fr; 
+  }
+}
+
+.kpi-card {
+  color: #fff; /* texto blanco */
+  padding: 20px;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+/* Colores diferentes */
+.total-sales {
+  background-color: #4caf50; /* verde */
+}
+
+.total-orders {
+  background-color: #2196f3; /* azul */
+}
+
+.avg-ticket {
+  background-color: #ff9800; /* naranja */
+}

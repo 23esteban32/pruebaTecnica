@@ -1,0 +1,67 @@
+<!-- src/app/dashboard/dashboard.component.html -->
+<div class="dashboard-container">
+
+  <!-- KPIs Cards -->
+  <div class="kpi-cards">
+    <mat-card class="kpi-card sales">
+      <mat-card-title>Total Ventas</mat-card-title>
+      <mat-card-content>{{ totalVentas | currency:'USD' }}</mat-card-content>
+    </mat-card>
+
+    <mat-card class="kpi-card orders">
+      <mat-card-title>Total Órdenes</mat-card-title>
+      <mat-card-content>{{ totalOrdenes }}</mat-card-content>
+    </mat-card>
+
+    <mat-card class="kpi-card ticket">
+      <mat-card-title>Ticket Promedio</mat-card-title>
+      <mat-card-content>{{ ticketPromedio | currency:'USD' }}</mat-card-content>
+    </mat-card>
+
+    <mat-card class="kpi-card top-products">
+      <mat-card-title>Top Productos</mat-card-title>
+      <mat-card-content>
+        <ul>
+          <li *ngFor="let p of topProductos">{{ p.name }} ({{ p.totalVendido || p.total_vendido }})</li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Charts -->
+  <div class="charts">
+    <mat-card>
+      <mat-card-title>Ventas por Día</mat-card-title>
+      <mat-card-content>
+        <canvas baseChart
+          [data]="salesChartData"
+          [options]="salesChartOptions"
+          [type]="salesChartType">
+        </canvas>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>Top Productos</mat-card-title>
+      <mat-card-content>
+        <canvas baseChart
+          [data]="topProductsChartData"
+          [options]="topProductsChartOptions"
+          [type]="topProductsChartType">
+        </canvas>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="full-width">
+      <mat-card-title>Métodos de Pago</mat-card-title>
+      <mat-card-content>
+        <canvas baseChart
+          [data]="paymentMethodsChartData"
+          [options]="paymentMethodsChartOptions"
+          [type]="paymentMethodsChartType">
+        </canvas>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>

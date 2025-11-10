@@ -1,0 +1,33 @@
+<div class="dashboard-container">
+  <div class="kpi-cards">
+  <mat-card class="kpi-card total-sales">Total Ventas: {{ totalSales | currency }}</mat-card>
+  <mat-card class="kpi-card total-orders">Órdenes: {{ totalOrders }}</mat-card>
+  <mat-card class="kpi-card avg-ticket">Ticket Promedio: {{ averageTicket | currency }}</mat-card>
+</div>
+
+  <div class="charts">
+    <mat-card>
+      <h3>Ventas por Día</h3>
+      <canvas baseChart 
+              [data]="salesByDayData" 
+              chartType="line">
+      </canvas>
+    </mat-card>
+
+    <mat-card>
+      <h3>Top Productos</h3>
+      <canvas baseChart 
+              [data]="topProductsData" 
+              chartType="bar">
+      </canvas>
+    </mat-card>
+
+    <mat-card>
+      <h3>Métodos de Pago</h3>
+      <canvas baseChart 
+              [data]="paymentMethodsData" 
+              chartType="doughnut">
+      </canvas>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+# Node.js
+backend/node_modules/
+dist/
+build/
+backend/.env
+
+# Angular
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+
+# Logs
+*.log
+
+.vscode/

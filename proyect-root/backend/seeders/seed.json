@@ -1,0 +1,94 @@
+{
+  "customers": [
+    { "name": "Juan Pérez", "email": "juan.perez@example.com" },
+    { "name": "María Gómez", "email": "maria.gomez@example.com" },
+    { "name": "Carlos Ramírez", "email": "carlos.ramirez@example.com" },
+    { "name": "Ana Torres", "email": "ana.torres@example.com" },
+    { "name": "Luis Fernández", "email": "luis.fernandez@example.com" },
+    { "name": "Sofía Martínez", "email": "sofia.martinez@example.com" },
+    { "name": "Diego López", "email": "diego.lopez@example.com" },
+    { "name": "Valentina Ruiz", "email": "valentina.ruiz@example.com" },
+    { "name": "Miguel Castillo", "email": "miguel.castillo@example.com" },
+    { "name": "Laura Morales", "email": "laura.morales@example.com" }
+  ],
+  "products": [
+    { "name": "Camiseta Roja", "sku": "SKU001", "price": 25.50, "category": "Ropa" },
+    { "name": "Pantalón Azul", "sku": "SKU002", "price": 40.00, "category": "Ropa" },
+    { "name": "Zapatos Negros", "sku": "SKU003", "price": 60.00, "category": "Calzado" },
+    { "name": "Chaqueta Verde", "sku": "SKU004", "price": 80.00, "category": "Ropa" },
+    { "name": "Gorra Negra", "sku": "SKU005", "price": 15.00, "category": "Accesorios" },
+    { "name": "Bolso Marrón", "sku": "SKU006", "price": 50.00, "category": "Accesorios" },
+    { "name": "Pantalón Blanco", "sku": "SKU007", "price": 35.00, "category": "Ropa" },
+    { "name": "Camiseta Azul", "sku": "SKU008", "price": 22.00, "category": "Ropa" },
+    { "name": "Zapatos Blancos", "sku": "SKU009", "price": 55.00, "category": "Calzado" },
+    { "name": "Bufanda Roja", "sku": "SKU010", "price": 20.00, "category": "Accesorios" }
+  ],
+  "orders": [
+    {
+      "customer_email": "juan.perez@example.com",
+      "order_date": "2025-11-01 10:15:00",
+      "status": "pagado",
+      "payment_method": "tarjeta",
+      "total_amount": 65.50,
+      "items": [
+        { "product_sku": "SKU001", "quantity": 1, "unit_price": 25.50 },
+        { "product_sku": "SKU002", "quantity": 1, "unit_price": 40.00 }
+      ]
+    },
+    {
+      "customer_email": "maría.gomez@example.com",
+      "order_date": "2025-11-02 14:30:00",
+      "status": "pendiente",
+      "payment_method": "efectivo",
+      "total_amount": 95.00,
+      "items": [
+        { "product_sku": "SKU003", "quantity": 1, "unit_price": 60.00 },
+        { "product_sku": "SKU004", "quantity": 1, "unit_price": 35.00 }
+      ]
+    },
+    {
+      "customer_email": "carlos.ramirez@example.com",
+      "order_date": "2025-11-03 09:45:00",
+      "status": "pagado",
+      "payment_method": "tarjeta",
+      "total_amount": 90.00,
+      "items": [
+        { "product_sku": "SKU005", "quantity": 2, "unit_price": 15.00 },
+        { "product_sku": "SKU006", "quantity": 1, "unit_price": 50.00 }
+      ]
+    },
+    {
+      "customer_email": "ana.torres@example.com",
+      "order_date": "2025-11-04 11:20:00",
+      "status": "pagado",
+      "payment_method": "tarjeta",
+      "total_amount": 57.00,
+      "items": [
+        { "product_sku": "SKU007", "quantity": 1, "unit_price": 35.00 },
+        { "product_sku": "SKU008", "quantity": 1, "unit_price": 22.00 }
+      ]
+    },
+    {
+      "customer_email": "luis.fernandez@example.com",
+      "order_date": "2025-11-05 16:10:00",
+      "status": "pendiente",
+      "payment_method": "efectivo",
+      "total_amount": 75.00,
+      "items": [
+        { "product_sku": "SKU009", "quantity": 1, "unit_price": 55.00 },
+        { "product_sku": "SKU010", "quantity": 1, "unit_price": 20.00 }
+      ]
+    },
+    {
+      "customer_email": "sofia.martinez@example.com",
+      "order_date": "2025-11-06 13:25:00",
+      "status": "pagado",
+      "payment_method": "tarjeta",
+      "total_amount": 105.00,
+      "items": [
+        { "product_sku": "SKU001", "quantity": 2, "unit_price": 25.50 },
+        { "product_sku": "SKU003", "quantity": 1, "unit_price": 54.00 }
+      ]
+    }
+  ]
+}
