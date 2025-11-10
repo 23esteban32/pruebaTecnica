@@ -1,0 +1,80 @@
+DROP DATABASE IF EXISTS prueba_tecnica;
+CREATE DATABASE prueba_tecnica CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE prueba_tecnica;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    passwword_hash VARCHAR(255) NOT NULL,
+    role VARCHAR(50)  NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE customers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    sku VARCHAR(50) UNIQUE NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    category VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_id INT NOT NULL,
+    order_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('pendiente','pagado','cancelado') DEFAULT 'pendiente',
+    payment_method ENUM('efectivo','tarjeta','transferencia') DEFAULT 'efectivo',
+    total_amount DECIMAL(10,2) DEFAULT 0,
+    FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE CASCADE
+);
+
+CREATE TABLE order_items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    unit_price DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+);
+
+-- Usuarios
+INSERT INTO users (email, password_hash, role)
+VALUES 
+('admin@example.com', '123456', 'admin'),
+('user@example.com', '654321', 'user');
+
+
+-- Clientes
+INSERT INTO customers (name, email)
+VALUES 
+('Juan Pérez', 'juan.perez@example.com'),
+('María Gómez', 'maria.gomez@example.com');
+
+-- Productos
+INSERT INTO products (name, sku, price, category)
+VALUES
+('Camiseta Roja', 'SKU001', 25.50, 'Ropa'),
+('Pantalón Azul', 'SKU002', 40.00, 'Ropa'),
+('Zapatos Negros', 'SKU003', 60.00, 'Calzado');
+
+-- Órdenes
+INSERT INTO orders (customer_id, order_date, status, payment_method, total_amount)
+VALUES
+(1, '2025-11-01 10:15:00', 'pagado', 'tarjeta', 65.50),
+(2, '2025-11-02 14:30:00', 'pendiente', 'efectivo', 100.00);
+
+-- Items de orden
+INSERT INTO order_items (order_id, product_id, quantity, unit_price)
+VALUES
+(1, 1, 1, 25.50),
+(1, 2, 1, 40.00),
+(2, 2, 2, 40.00),
+(2, 3, 1, 20.00);
