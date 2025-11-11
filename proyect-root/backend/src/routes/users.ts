@@ -17,16 +17,16 @@ import { authMiddleware } from "../middleware/authMiddleware";
 const router = Router();
 
 // Ruta protegida prueba
-router.get("/me", authMiddleware, async (req, res) => {
-  res.json({
-    message: "Ruta protegida accesible",
-    user: (req as any).user,
-  });
-});
+// router.get("/me", authMiddleware, async (req, res) => {
+//   res.json({
+//     message: "Ruta protegida accesible",
+//     user: (req as any).user,
+//   });
+// });
 
 
 // Crear usuario (Registro)
-router.post("/register",authMiddleware, async (req, res) => {
+router.post("/register", async (req, res) => {
   const { email, password, role } = req.body;
 
   if (!email || !password) {
@@ -49,7 +49,7 @@ router.post("/register",authMiddleware, async (req, res) => {
 });
 
 // validacion jwt
-router.post("/login",authMiddleware, async (req, res) => {
+router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
